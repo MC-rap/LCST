@@ -1,0 +1,21 @@
+<div class="hander">
+  <div class="topphone">
+    <div class="tphone clearfix">
+      <ul>
+        <li class="s-yw">服务热线</li>
+        <li class="s-sz">{dede:global.cfg_dh/}</li>
+      </ul>
+    </div>
+  </div>
+  <div class="handfoot clearfix">
+    <div class="logo"><a href="/" title="{dede:global.cfg_webname/}" target="_blank"><img alt="{dede:global.cfg_webname/}" src="/style/images/logo.png" /></a></div>
+    <div class="nav">
+      <ul>
+        <li><a href="/" {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='s_nav'":@me="";{/dede:field}><span>首页</span>首页</a></li>
+       {dede:channel type='top' currentstyle="<li><a href='~typelink~' class='s_nav'><span>~typename~</span>~typename~</a></li>" row='7'}
+        <li><a href="[field:typelink/]"><span>[field:typename/]</span>[field:typename/]</a></li>
+        {/dede:channel}
+      </ul>
+    </div>
+  </div>
+</div>

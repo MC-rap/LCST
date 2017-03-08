@@ -1,0 +1,58 @@
+<script type="text/javascript" src="/style/js/top.js"></script>
+<div class="footer">
+  <div class="foot">
+    <div class="footl">
+      <ul>
+        <li class="s-dz">
+          <p class="footone"><span>地址</span>／address</p>
+          <p>{dede:global.cfg_dz/}</p>
+        </li>
+        <li class="s-hopen">
+          <p class="footone"><span>电话</span>／telephone</p>
+          <p>{dede:global.cfg_dh/}</p>
+        </li>
+        <li class="s-wz">
+          <p class="footone"><span>网址</span>／Site</p>
+          <p>{dede:global.cfg_basehost/}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="footr">
+      <div class="s-ewm"><img src="/style/images/foot-ewm.png"  alt=""/></div>
+      <div class="s-dbcd">
+        <ul>
+          <li> 
+          {dede:channel type='top' row='10'}<a href="[field:typeurl/]">[field:typename/]</a> | {/dede:channel}
+          </li>
+        </ul>
+        <p>{dede:global.cfg_powerby/}<a href="http://www.miibeian.gov.cn/" target="_blank">　{dede:global.cfg_beian/}</a></p>
+        <p>技术支持：<a href="http://www.adminbuy.cn/" target="_blank">AB模版网</a>
+        <p>
+        <p class="gjz">友情链接：{dede:flink row='24'}[field:link /]{/dede:flink}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="floating_ck">
+  <dl>
+    <dt></dt>
+    <dd class="consult"> <span>在线咨询</span>
+      <div class="floating_left"><a href="http://wpa.qq.com/msgrd?v=3&uin={dede:global.cfg_qq/}&site=qq&menu=yes">荣丰蔬菜在线咨询</a></div>
+    </dd>
+    <dd class="words"> <span>在线留言</span>
+      <div class="floating_left">{dede:type typeid='17'}<a href="[field:typelink /]">问题在线留言</a>{/dede:type}</div>
+    </dd>
+    <dd class="quote"> <span>索要报价</span>
+      <div class="floating_left">{dede:type typeid='18'}<a href="[field:typelink /]">咨询价格表</a>{/dede:type}</div>
+    </dd>
+    <dd class="qrcord"> <span>扫一扫</span>
+      <div class="floating_left floating_ewm"> <i></i>
+        <p class="qrcord_p01">扫一扫<br>
+          进入手机网站</p>
+        <p class="qrcord_p02">服务热线<br>
+          <b>{dede:global.cfg_dh/}<b></p>
+      </div>
+    </dd>
+    <dd class="return"> <span onClick="gotoTop();return false;">返回顶部</span> </dd>
+  </dl>
+</div>

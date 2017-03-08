@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+<meta name="keywords" content="{dede:field name='keywords'/}" />
+<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+<link rel="stylesheet" type="text/css" href="/style/css/css.css"/>
+<link rel="stylesheet" type="text/css" href="/style/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style/css/camera.css"/>
+<script type="text/javascript" src="/style/js/jquery-1.7.min.js"></script>
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/list.php?tid={dede:field.id/}";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<script type="text/javascript">
+    $(function () {
+        Hover($(".news-list .list li"), "hover");
+        if ($(window).width() < 1440) {
+            if ($(".news-list .img").css("display") == "none") {
+                $(".news-list").width(970);
+                $(".news-list .list").css({
+                    "float": "none",
+                    "margin": "0 auto"
+                });
+                $(".news-move").css("width", $(".news-move ul").length * 498);
+                if ($(".news-move ul").length > 2) {
+                    for (i = 0; i < $(".news-move ul").length / 2; i++) {
+                        $(".news-change").append('<span class="span' + i + '"></span>');
+                    }
+                    $(".news-change span").eq(0).addClass("on");
+                    $(".news-change span").click(function () {
+                        $(this).addClass("on").siblings().removeClass("on");
+                        $(".news-move").stop().animate({ marginLeft: -498 * $(this).index() }, 500)
+                    })
+                }
+            } else {
+                $(".news-list").css("width", 970);
+                $(".news-list .list").css("width", 970);
+                $(".news-move").css("width", $(".news-move ul").length * 498);
+                for (i = 0; i < $(".news-move ul").length; i++) {
+                    $(".news-change").append('<span class="span' + i + '"></span>');
+                }
+                $(".news-change span").eq(0).addClass("on");
+                $(".news-change span").click(function () {
+                    $(this).addClass("on").siblings().removeClass("on");
+                    $(".news-move").stop().animate({ marginLeft: -498 * $(this).index() }, 500)
+                })
+            }
+        } else {
+            $(".news-move").css("width", $(".news-move ul").length * 498);
+            if ($(".news-move ul").length > 2) {
+                for (i = 0; i < $(".news-move ul").length / 2; i++) {
+                    $(".news-change").append('<span class="span' + i + '"></span>');
+                }
+                $(".news-change span").eq(0).addClass("on");
+                $(".news-change span").click(function () {
+                    $(this).addClass("on").siblings().removeClass("on");
+                    $(".news-move").stop().animate({ marginLeft: -498 * $(this).index() }, 500)
+                })
+            }
+        }
+    })
+</script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/style/js/dd_belatedpng.js"></script>
+<script>
+  /* EXAMPLE */
+  DD_belatedPNG.fix(".s_nav,img,.s-leftjt,.s-rightjt,.nav a,.nav a:hover,ul,span,.s-dz,.s-hopen,.s-wz");
+  /* string argument can be any CSS selector */
+  /* .png_bg example is unnecessary */
+  /* change it to what suits you! */
+</script>
+<![endif]-->
+</head>
+<body>
+<!--头部开始--> 
+{dede:include filename="head.htm"/}
+<!--头部结束--> 
+
+<!--中间开始-->
+<div class="main"> 
+  <!-------------------------banner 开始-------------------------------->
+  <div class="zy_banner"><img src="/style/images/news.jpg"  width="1004" height="310" /></div>
+  <!-------------------------banner 结束-------------------------------->
+  
+  <div class="w1002">
+    {dede:include filename="weizhi.htm"/}
+    <div class="s-zycenter">
+      <p class="s-btyw">NEWS</p>
+      <p>{dede:field.typeid runphp='yes'}$ID = @me; $sql = "SELECT * FROM `dede_arctype` WHERE id=$ID";$query = mysql_query($sql);$row=mysql_fetch_array($query); $relID = "$row[reid]"; if($relID == 0) {@me = $row[typename];}else{$sql = "SELECT `typename` FROM `dede_arctype` WHERE id=$relID";$query = mysql_query($sql);$row=mysql_fetch_array($query); @me = $row[typename];}{/dede:field.typeid}</p>
+    </div>
+    <div class="zy-mume  clearfix">
+      <ul>
+        {dede:channelartlist type='son' noself='yes' typeid='5'}
+        <li>
+          <h2><a href="{dede:field name='typeurl'/}" {dede:field name='currentstyle'/}>{dede:field name='typename'/}</a></h2>
+        </li>
+       {/dede:channelartlist}
+      </ul>
+    </div>
+    <div class="s-zyfoot">
+      <div class="news-list zynews-list">
+        <div class="list">
+          <div class="news-move">
+            <ul>
+            {dede:list pagesize='8' titlelen='36'}
+              <li>
+                <div class="s-newsbj">
+                  <div class="time">
+                    <p class="day">[field:pubdate function='strftime("%d",@me)'/]</p>
+                    <p>[field:pubdate function='strftime("%Y-%m",@me)'/]</p>
+                  </div>
+                  <div class="intro">
+                    <h3> <a href="[field:arcurl/]" title="[field:title/]" target="_blank" class="tit">[field:title/]</a></h3>
+                    <a href="[field:arcurl/]" title="[field:title/]" target="_blank">　　[field:description function='cn_substr(@me,150)'/]...</a> </div>
+                </div>
+                <div class="s-dbyy"></div>
+              </li>
+              {/dede:list}
+            </ul>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <div class="pagess">
+        <ul>
+         {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
+        </ul>
+        </div>
+        <div class="news-change"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--中间结束--> 
+
+<!--底部开始--> 
+{dede:include filename="foot.htm"/}
+<!--底部结束-->
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+<title>{dede:global.cfg_webname/}</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="author" content="design by www.adminbuy.cn" />
+<link rel="stylesheet" type="text/css" href="/style/css/css.css"/>
+<link rel="stylesheet" type="text/css" href="/style/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="/style/css/camera.css"/>
+<script type="text/javascript" src="/style/js/jquery-1.7.min.js"></script>
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+<!--[if IE 6]>
+<script type="text/javascript" src="/style/js/dd_belatedpng.js"></script>
+<script>
+  /* EXAMPLE */
+  DD_belatedPNG.fix(".s_nav,img,.s-leftjt,.s-rightjt,.nav a,.nav a:hover,ul,span,.s-dz,.s-hopen,.s-wz");
+  /* string argument can be any CSS selector */
+  /* .png_bg example is unnecessary */
+  /* change it to what suits you! */
+</script>
+<![endif]-->
+<script type="text/javascript" src="/style/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/style/js/camera.min.js"></script>
+<script type="text/javascript" src="/style/js/scrollpic.js"></script>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery('#camera_wrap_2').camera({
+            height: 'auto',
+            loader: 'none',
+            pagination: false,
+            thumbnails: false,
+            easing: 'easeInOutExpo',
+            time: 1000
+        });
+        function width() {
+            var wid = window.screen.width;
+            switch (wid) {
+                case 1920: jQuery(".fluid_container").height(599)
+                    break;
+                case 1680: jQuery(".fluid_container").height(524)
+                    break;
+                case 1600: jQuery(".fluid_container").height(499)
+                    break;
+                case 1440: jQuery(".fluid_container").height(449)
+                    break;
+                case 1366: jQuery(".fluid_container").height(426)
+                    break;
+                case 1360: jQuery(".fluid_container").height(424)
+                    break;
+                case 1280: jQuery(".fluid_container").height(399)
+                    break;
+                case 1152: jQuery(".fluid_container").height(359)
+                    break;
+                case 1024: jQuery(".fluid_container").height(319)
+                    break;
+            }
+        }
+        width();
+        jQuery(window).resize(function () {
+            width();
+        });
+    });
+	</script>
+<script type="text/javascript">
+    $(function () {
+        $(".s-cplist li").hover(function () {
+            $(this).children(".s-yccpbt").stop(false, true).animate({ 'top': 0 }, 300);
+        }, function () {
+            $(this).children(".s-yccpbt").stop(false, true).animate({ 'top': -268 }, 300);
+        });
+    });
+</script>
+<script type="text/javascript">
+$(function() {
+	<!--//--><![CDATA[//><!--
+	var scrollPic_02 = new ScrollPic();
+	scrollPic_02.scrollContId   = "ISL_Cont_1"; //内容容器ID
+	scrollPic_02.arrLeftId      = "LeftArr";//左箭头ID
+	scrollPic_02.arrRightId     = "RightArr"; //右箭头ID
+	scrollPic_02.frameWidth     = 874;//显示框宽度
+	scrollPic_02.pageWidth      = 291; //翻页宽度
+	scrollPic_02.speed          = 10; //移动速度(单位毫秒，越小越快)
+	scrollPic_02.space          = 10; //每次移动像素(单位px，越大越快)
+	scrollPic_02.autoPlay       =  //自动播放
+	scrollPic_02.autoPlayTime   = 3; //自动播放间隔时间(秒)
+	scrollPic_02.initialize(); //初始化		
+	//--><!]]>
+});
+	 $(function(){
+	     $(".s-xgw .s-center li").hover(function(){
+			 $(this).addClass("syyr");
+			},function(){
+			 $(this).removeClass("syyr");
+			});
+	   });
+</script>
+<script type="text/javascript">
+    $(function () {
+        //News-list
+        Hover($(".news-list .list li"), "hover");
+        if ($(window).width() < 1440) {
+            if ($(".s-newsnr .img").css("display") == "none") {
+                $(".s-newsnr").width(1002);
+                $(".news-list .list").css({
+                    "float": "none",
+                    "margin": "0 auto"
+                });
+                $(".s-newslist").css("width", $(".s-newslist li").length * 501);
+                if ($(".s-newslist li").length > 2) {
+                    for (i = 0; i < $(".s-newslist li").length / 2; i++) {
+                        $(".news-change").append('<span class="span' + i + '"></span>');
+                    }
+                    $(".news-change span").eq(0).addClass("on");
+                    $(".news-change span").click(function () {
+                        $(this).addClass("on").siblings().removeClass("on");
+                        $(".s-newslist").stop().animate({ marginLeft: -501 * $(this).index() }, 500)
+                    })
+                }
+            } else {
+                $(".s-newsnr").css("width", 1002);
+                $(".s-newslist").css("width", $(".s-newslist li").length * 501);
+                for (i = 0; i < $(".s-newslist li").length; i++) {
+                    $(".news-change").append('<span class="span' + i + '"></span>');
+                }
+                $(".news-change span").eq(0).addClass("on");
+                $(".news-change span").click(function () {
+                    $(this).addClass("on").siblings().removeClass("on");
+                    $(".s-newslist").stop().animate({ marginLeft: -501 * $(this).index() }, 500)
+                })
+            }
+        } else {
+            $(".s-newsnr").css("width", 1002);
+            $(".s-newslist").css("width", $(".s-newslist li").length * 501);
+            if ($(".s-newslist li").length > 2) {
+                for (i = 0; i < $(".s-newslist li").length / 2; i++) {
+                    $(".news-change").append('<span class="span' + i + '"></span>');
+                }
+                $(".news-change span").eq(0).addClass("on");
+                $(".news-change span").click(function () {
+                    $(this).addClass("on").siblings().removeClass("on");
+                    $(".s-newslist").stop().animate({ marginLeft: -501 * $(this).index() }, 500)
+                })
+            }
+        }
+    })
+</script>
+</head>
+<body>
+<!--头部开始--> 
+{dede:include filename="head.htm"/}
+<!--头部结束--> 
+<!--中间开始-->
+<div class="main"> 
+  
+  <!-------------------------banner 开始-------------------------------->
+  
+  <div class="sy_banner">
+    <div class="fluid_container">
+      <div class="camera_wrap camera_magenta_skin" id="camera_wrap_2">
+        {dede:arclist row='3' titlelen='36' typeid='21'}
+        <div data-src="[field:litpic/]" ></div>
+        {/dede:arclist}
+      </div>
+    </div>
+  </div>
+  
+  <!-------------------------banner 结束-------------------------------->
+  <div class="w1002">
+    <div class="s-about clearfix">
+      <div class="s-aboutbt"> <h2>{dede:type typeid='1'}<a target="[field:typename /]" href="[field:typelink /]">[field:typename /]</a>{/dede:type}</h2> </div>
+      <div class="s-aboutnr">
+        <div class="s-aboutleft"><img src="/style/images/s-aboutimg.jpg" alt="" /></div>
+        <div class="s-aboutright"> <p class="s-wztop">AB模版网·打造织梦模版第一品牌</p>
+<p>    {dede:sql sql="select content from dede_arctype where id=2"}[field:content function=cn_substr(Html2Text(@me),400)/]{/dede:sql}...</p> </div>
+      </div>
+      <div class="s-vode"><img src="/style/images/liuchen.jpg" width="311" height="257" alt="配送流程"/></div>
+    </div>
+    <div class="s-cp clearfix">
+      <div class="s-cplist">
+        <ul class="clearfix">
+          {dede:arclist row='6' titlelen='36' typeid='8'}
+			<li><a href="[field:arcurl/]" title="[field:title/]" target="_blank"><img src="[field:litpic/]" width="268" height="268" alt="[field:title/]"/></a>
+            <div class="s-yccpbt"> <a href="[field:arcurl/]" title="[field:title/]" target="_blank">
+              <h3>[field:title/]</h3>
+              <p>[field:description function='cn_substr(@me,250)'/]...</p>
+              </a> </div>
+          </li>
+		{/dede:arclist}
+        </ul>
+      </div>
+      <div class="s-cpbt"> {dede:type typeid='8'}<a href="[field:typelink /]" target="_blank">查看更多</a>{/dede:type}</div>
+    </div>
+  </div>
+  <div class="s-yzrp">
+    <div class="s-yzcpw">
+      <div class="s-yzcpbt">
+      {dede:type typeid='20'}
+        <h2 class="l-yzcpbtitem"><a href="[field:typelink /]" target="_blank">Base display</a></h2>
+        <h2 class="l-yzcpbtit"><a href="[field:typelink /]" target="_blank">[field:typename /]</a></h2>
+        {/dede:type}
+      </div>
+      <div class="s-yzcplb clearfix"> <a class="s-leftjt" id="LeftArr" href="javascript:;"></a>
+        <div class="s-xgw clearfix" id="ISL_Cont_1">
+          <ul class="s-center">
+            {dede:arclist row='8' titlelen='36' typeid='20'}
+			<li><a class="s-yzimg" href="[field:arcurl/]" title="[field:title/]" target="_blank"><img src="[field:litpic/]" alt="[field:title/]" width="266" height="198" /></a>
+              <div class="s-yzdb">
+                <h3><a href="[field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a></h3>
+              </div>
+            </li>
+			{/dede:arclist}
+
+          </ul>
+        </div>
+        <a class="s-rightjt" id="RightArr" href="javascript:;"></a>
+        <div class="both"></div>
+      </div>
+    </div>
+  </div>
+  <div class="w1002">
+    <div class="s-news">
+      <div class="s-yzcpbt s-newsbt">
+      {dede:type typeid='5'}
+        <h2 class="l-synewsem"><a href="[field:typelink /]" target="_blank">talagou news center</a></h2>
+        <h2 class="l-synews"><a class="l-newschinatit" href="[field:typelink /]" target="_blank">[field:typename /]</a></h2>
+        {/dede:type}
+      </div>
+      <div class="s-newsnr">
+        <div class="s-newslist">
+          <ul class="clearfix">
+          {dede:arclist row='2' titlelen='40' typeid='5'}
+            <li class="clearfix">
+              <div class="s-newsnrl"><a href="[field:arcurl/]" title="[field:title/]" target="_blank"><img src="[field:litpic/]" width="200" height="110" alt="[field:title/]" /><span></span></a></div>
+              <div class="s-newsnrr">
+                <h3><a href="[field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a></h3>
+                <span>[field:pubdate function='strftime("%Y-%m-%d",@me)'/]</span>
+                <div class="s-newsfoot">
+                  <p>[field:description function='cn_substr(@me,100)'/]...</p>
+                </div>
+              </div>
+            </li>
+			{/dede:arclist}
+
+          </ul>
+        </div>
+        <div class="clear"></div>
+        <div class="news-change"></div>
+      </div>
+    </div>
+    <div class="s-yycz clearfix">
+      <div class="s-aboutbt">
+       {dede:type typeid='13'}<h2><a class="s-yyczbt" href="[field:typelink /]" target="_blank">[field:typename /]</a></h2>{/dede:type}
+        <div class="s-ggby"> 
+          {dede:channel type='son' typeid='13'}
+          <a href="[field:typeurl/]" target="_blank">[field:typename/]</a>
+          {/dede:channel}
+          </div>
+      </div>
+      <div class="s-yyczl">
+        <div class="news-list sy-news-list">
+          <div class="list sy-list">
+            <div class="news-move">
+              <ul>
+              {dede:arclist limit='1,3' titlelen='36' typeid='13'}
+                <li class="">
+                  <div class="time">
+                    <p class="day"> [field:pubdate function='strftime("%d",@me)'/]</p>
+                    <p> [field:pubdate function='strftime("%Y-%m",@me)'/]</p>
+                  </div>
+                  <div class="intro">
+                    <h3> <a href="[field:arcurl/]" title="[field:title/]" target="_blank" class="tit">[field:title/]</a></h3>
+                    <a href="[field:arcurl/]" title="[field:title/]" target="_blank">[field:description function='cn_substr(@me,140)'/]...</a> </div>
+                </li>
+				{/dede:arclist}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+       {dede:arclist limit='0,1' titlelen='36' typeid='13' type='image'}
+      <div class="s-yyczr">
+        <div class="s-yyczimg"><a href="[field:arcurl/]" title="[field:title/]" target="_blank"><img src="[field:litpic/]" width="444" height="302" alt="[field:title/]" /></a></div>
+        <div class="s-yycznews">
+          <h3><a href="[field:arcurl/]" title="[field:title/]" target="_blank">[field:title/]</a></h3>
+          <p>[field:description function='cn_substr(@me,140)'/]...</p>
+        </div>
+      </div>
+      {/dede:arclist}
+ </div>
+  </div>
+</div>
+<!--中间结束--> 
+<!--底部开始--> 
+{dede:include filename="foot.htm"/}
+<!--底部结束-->
+</body>
+</html>

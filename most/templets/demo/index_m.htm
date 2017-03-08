@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+<title>{dede:global.cfg_webname/}移动版</title>
+<meta name="description" content="{dede:global.cfg_description/}" />
+<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+<meta name="author" content="order by adminbuy.cn" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="telephone=no" name="format-detection" />
+<script type="text/javascript" language="javascript" src="/style/m/js/jq.js"></script>
+<script type="text/javascript" language="javascript" src="/style/m/js/js.js"></script>
+<!--[if lt IE 9]><script src="/style/m/js/html5.js"></script><![endif]-->
+<link href="/style/m/css/css.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+{dede:include filename="nav_m.htm"/}
+<div class="mainbox"> 
+  
+  <!--header-->
+  
+  <div id="header" class="clearfix">
+    <div id="logo"><a href="/m/"><img src="/style/m/images/logo.png" alt=""></a></div>
+    <div class="flbox"><img src="/style/m/images/fl.jpg" alt="分类"></div>
+  </div>
+  <script type="text/javascript" language="javascript" src="/style/m/js/banner.js"></script>
+  <div id="slideBox" class="slideBox">
+    <div class="bd">
+      <ul>
+        <li> <a class="pic"><img src="/style/m/images/banner3.jpg" alt=""/></a> <a class="tit"></a></li>
+        <li> <a class="pic"><img src="/style/m/images/banner2.jpg" alt=""/></a> <a class="tit"></a></li>
+        <li> <a class="pic"><img src="/style/m/images/banner1.jpg" alt=""/></a> <a class="tit""></a></li>
+      </ul>
+    </div>
+    <div class="hd">
+      <ul>
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+				TouchSlide({ 
+
+					slideCell:"#slideBox",
+
+					titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+
+					mainCell:".bd ul", 
+
+					effect:"leftLoop", 
+
+					autoPage:true,//自动分页
+
+					autoPlay:true //自动播放
+
+				});
+
+			</script> 
+  
+  <!--serch-->
+  
+  <form  role="search" action="/plus/search.php">
+    <div id="serchbox" class="clearfix">
+      <input type="hidden" name="mobile" value="1" />
+      <input type="hidden" name="kwtype" value="0" />
+      <input class="indexl input" type="text"  name="q">
+      <input type="submit" class="sechan" value="&nbsp;" onClick="return checkForm();">
+    </div>
+  </form>
+  
+  <!--2级导航-->
+  
+  <ul class="listmenu2 clearfix">
+   {dede:type typeid='1'} <li> <a href="list.php?tid=[field:id/]"> <img src="/style/m/images/cp.png" alt="[field:typename /]">
+      <p>[field:typename /]</p>
+      </a> </li>{/dede:type}
+    {dede:type typeid='3'}<li> <a href="list.php?tid=[field:id/]"> <img src="/style/m/images/pp.png" alt="[field:typename /]">
+      <p>[field:typename /]</p>
+      </a> </li>{/dede:type}
+    {dede:type typeid='4'}<li> <a href="list.php?tid=[field:id/]"> <img src="/style/m/images/server.png" alt="[field:typename /]">
+      <p>[field:typename /]</p>
+      </a> </li>{/dede:type}
+   {dede:type typeid='20'} <li> <a href="list.php?tid=[field:id/]"> <img src="/style/m/images/news.png" alt="[field:typename /]">
+      <p>[field:typename /]</p>
+      </a> </li>{/dede:type}
+  </ul>
+  <ul class="hotmenulit clearfix">
+    {dede:type typeid='9'}<li class="current"> <a href="list.php?tid=[field:id/]"> <span><img src="/style/m/images/rx.png" alt="[field:typename /]"></span> <b>[field:typename /]</b>
+      <p>HOT PEODUCTS</p>
+      </a> </li>{/dede:type}
+    {dede:type typeid='10'}<li> <a href="list.php?tid=[field:id/]"> <span><img src="/style/m/images/xp.png" alt="[field:typename /]"></span> <b>[field:typename /]</b>
+      <p>NEWS PEODUCTS</p>
+      </a> </li>{/dede:type}
+    {dede:type typeid='11'}<li> <a href="list.php?tid=[field:id/]"> <span><img src="/style/m/images/tj.png" alt="[field:typename /]"></span> <b>[field:typename /]</b>
+      <p>SPECIAL</p>
+      </a> </li>{/dede:type}
+    {dede:type typeid='12'}<li> <a href="list.php?tid=[field:id/]"> <span><img src="/style/m/images/cx.png" alt="[field:typename /]"></span> <b>[field:typename /]</b>
+      <p>PROMOTIONAL</p>
+      </a> </li>{/dede:type}
+  </ul>
+  
+  <!--产品展示-->
+  
+  <div class="cpzs">
+  {dede:type typeid='8'}
+    <h3>[field:typename /]</h3>
+    <span class="more"><a href="list.php?tid=[field:id/]">MORE+</a> </span>{/dede:type}</div>
+  <ul class="cplist clearfix">
+    {dede:arclist row='6' titlelen='36' typeid='8'}
+    <li> <a href="view.php?aid=[field:id/]"> <img src="[field:litpic/]" alt="[field:title/]">
+      <p class="title">[field:title/]</p>
+      <span class="title bg"></span> </a> </li>
+   {/dede:arclist}
+  </ul>
+  
+  <!-- 底部 --> 
+  
+  <!--footer--> 
+  {dede:include filename="foot_m.htm"/} </div>
+<script>
+
+$(document).ready(function(){
+
+function wSize(){
+
+	var heights = $(window).height(); 
+
+	var heighttop=$(".foc").height();
+
+	var focHeights = $("#header").height();
+
+	var mainboxheight=heights - heighttop - focHeights ;
+
+	//var widths = $(window).width();
+
+	//var left = heights ;//heights - ($("#header").height()+71);
+
+	//$(".mianbox").height(left);
+
+	$("#footer").css('marginBottom', heighttop);	
+
+	//$(".cont").css('minHeight', mainboxheight);	
+
+	
+
+	
+
+}
+
+wSize();
+
+/*
+
+if($(window).height() > 810){
+
+	var heights = $(window).height(); 
+
+	var mgtp = (heights - 810)/2;
+
+	$(".mianbox").height(810);	
+
+	$(".mianbox").css('marginTop', mgtp);	
+
+	};
+
+*/
+
+
+
+})
+
+</script>
+</body>
+</html>

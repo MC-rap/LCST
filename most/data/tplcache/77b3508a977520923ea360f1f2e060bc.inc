@@ -1,0 +1,1 @@
+<a href="[field:typelink /]" class="nav3">[field:typename /]</a>
